@@ -1,0 +1,12 @@
+Операция №: <%= @parsed_json['id'] %></br>
+Дата: <%= @dateFromReq.strftime('%d.%m.%Y %H:%M') %></br>
+Операция: <%= @parsed_json['operation']['name'] %> </br>
+Сотрудник: <%= @parsed_json['worker']['fname']+' '+@parsed_json['worker']['sname'] %></br>
+Кол-во: <%= @parsed_json['cnt'] %>; цена: <%= @parsed_json['cost'] %>; сумма: <%= @parsed_json['amount'] %>
+<% if @parsed_json['linkedworker']!=nil %>
+<hr>
+<%= @parsed_json['linkedworker']['fname']+' '+@parsed_json['linkedworker']['sname'] %>: 
+<% if @parsed_json['linkedoperation']!=nil %>
+	<%= @parsed_json['linkedoperation']['name'] %>
+<% end %>
+<% end %>	
